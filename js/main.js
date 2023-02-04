@@ -352,7 +352,6 @@ Vue.component('column4', {  //проверка срока дедлайна: ср
                 <li><b>Дата создания:</b> {{ card.dateC }}</li>
                 <li v-if="card.dateL"><b>Дата последних изменений: </b>{{ card.dateL }}</li>
                 <li v-if="card.inTime">Задача выполнена в срок!!!</li>
-                
                 <li v-else>Задача выполнена не в срок :(</li>
                 <li>
             </ul>

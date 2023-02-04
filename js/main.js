@@ -125,7 +125,7 @@ Vue.component('column1', {  //создание, удаление, редакти
     template:`
     <div class="column">
         <h3>Запланированные задачи</h3>
-        <div v-for="card in column1">
+        <div class="card" v-for="card in column1">
             <ul>
                 <li><b>Заголовок:</b> {{ card.title }}</li>
                 <li><b>Описание задачи:</b> {{ card.description }}</li>
@@ -134,7 +134,7 @@ Vue.component('column1', {  //создание, удаление, редакти
                 <li v-if="card.dateL"><b>Дата последних изменений</b>{{ card.dateL }}</li>
                 <button @click="deleteCard(card)">Удалить</button>
                 <button @click="updateC(card)">Изменить</button>
-                <div v-if="card.updateCard">
+                <div class="change" v-if="card.updateCard">
                     <form @submit.prevent="updateTask(card)">
                         <p>Введите заголовок: 
                             <input type="text" v-model="card.title" maxlength="30" placeholder="Заголовок">
@@ -194,7 +194,7 @@ Vue.component('column2', {  //редактирование, время посл�
     template:`
     <div class="column">
         <h3>Задачи в работе</h3>
-        <div v-for="card in column2">
+        <div class="card" v-for="card in column2">
             <ul>
                 <li><b>Заголовок:</b> {{ card.title }}</li>
                 <li><b>Описание задачи:</b> {{ card.description }}</li>
@@ -203,7 +203,7 @@ Vue.component('column2', {  //редактирование, время посл�
                 <li v-if="card.dateL"><b>Дата последних изменений</b>{{ card.dateL }}</li>
                 <li v-if="card.reason.length"><b>Комментарии: </b><li v-for="r in card.reason">{{ r }}</li></li>
                 <button @click="updateC(card)">Изменить</button>
-                <div v-if="card.updateCard">
+                <div class="change" v-if="card.updateCard">
                     <form @submit.prevent="updateTask(card)">
                         <p>Введите заголовок: 
                             <input type="text" v-model="card.title" maxlength="30" placeholder="Заголовок">
@@ -259,7 +259,7 @@ Vue.component('column3', {  //редактирование, время посл�
     template:`
     <div class="column">
         <h3>Тестирование</h3>
-        <div v-for="card in column3">
+        <div class="card" v-for="card in column3">
             <ul>
                 <li><b>Заголовок:</b> {{ card.title }}</li>
                 <li><b>Описание задачи:</b> {{ card.description }}</li>
@@ -274,7 +274,7 @@ Vue.component('column3', {  //редактирование, время посл�
                     </form>
                 </li>
                 <button @click="updateC(card)">Изменить</button>
-                <div v-if="card.updateCard">
+                <div class="change" v-if="card.updateCard">
                     <form @submit.prevent="updateTask(card)">
                         <p>Введите заголовок: 
                             <input type="text" v-model="card.title" maxlength="30" placeholder="Заголовок">
@@ -344,7 +344,7 @@ Vue.component('column4', {  //проверка срока дедлайна: ср
     template:`
     <div class="column">
         <h3>Выполненные задачи</h3>
-        <div v-for="card in column4">
+        <div class="card" v-for="card in column4">
             <ul>
                 <li><b>Заголовок:</b> {{ card.title }}</li>
                 <li><b>Описание задачи:</b> {{ card.description }}</li>

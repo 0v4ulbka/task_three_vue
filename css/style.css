@@ -1,5 +1,8 @@
 textarea{
     resize: none;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 12px;
 }
 
 body{
@@ -12,7 +15,7 @@ body{
     background-color: rgba(239, 203, 245, .7);
     border: #e1a0e7 solid 2px;
     border-radius: 12px;
-    padding-bottom: 14px;
+    padding: 18px;
 }
 
 #columns{
@@ -32,6 +35,7 @@ body{
 
 ul{
     padding: 0;
+    margin-bottom: 0px;
 }
 
 li{
@@ -40,5 +44,65 @@ li{
 }
 
 button{
-    padding: 7px 10px;
+    padding: 9px 20px;
+    border-radius: 7px;
+    border: none;
+    background-color: #e1a0e7;
+    margin-top: 15px;
+}
+
+button:hover{
+    background-color: #b983be;
+    cursor: pointer;
+    transition: 0.5s;
+    color: #3821b4;
+}
+
+#inTime{
+    color: darkolivegreen;
+    text-decoration: underline;
+}
+
+#notInTime {
+    color: firebrick;
+    text-decoration: underline;
+}
+
+.title{
+    margin-bottom: 25px;
+}
+
+#form {
+    margin: 50px 0;
+    display: block;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.button{
+    padding: 9px 20px;
+    border-radius: 7px;
+    border: none;
+    background-color: #e1a0e7;
+    margin-top: 15px;
+    margin-bottom: -40px;
+}
+
+.button:hover{
+    background-color: #b983be;
+    cursor: pointer;
+    transition: 0.5s;
+    color: #3821b4;
+}
+
+input{
+    border: none;
+    width: 200px;
+    padding: 10px 12px;
+    border-radius: 12px;
+
+}
+
+.pForm{
+    margin-top: 35px;
 }

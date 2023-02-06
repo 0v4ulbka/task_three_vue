@@ -64,20 +64,19 @@ Vue.component('fill', {     //содержит:дата создания, заг
 
     },
     template:`
-    <div>
+    <div id="form">
         <h3>Заполните карточку задачи</h3>
         <form @submit.prevent="onSubmit">
-            <p>Введите заголовок: 
-                <input type="text" v-model="title" maxlength="30" placeholder="Заголовок">
+            <p class="pForm">Введите заголовок: 
+                <input required type="text" v-model="title" maxlength="30" placeholder="Заголовок">
             </p>
-            <p>Добавьте описание задаче: 
-                <textarea v-model="description" cols="20" rows="5"></textarea>
+            <p class="pForm">Добавьте описание задаче:</p>
+            <textarea v-model="description" cols="40" rows="4"></textarea>
+            <p class="pForm">Укажите дату дедлайна: 
+                <input required type="date" v-model="dateD">
             </p>
-            <p>Укажите дату дедлайна: 
-                <input type="date" v-model="dateD">
-            </p>
-            <p>
-                <input type="submit" value="Добвить задачу">
+            <p class="pForm">
+                <input class="button" type="submit" value="Добвить задачу">
             </p>
         </form>
     </div>
@@ -127,7 +126,7 @@ Vue.component('column1', {  //создание, удаление, редакти
         <h3>Запланированные задачи</h3>
         <div class="card" v-for="card in column1">
             <ul>
-                <li><b>Заголовок:</b> {{ card.title }}</li>
+                <li class="title"><b>Заголовок:</b> {{ card.title }}</li>
                 <li><b>Описание задачи:</b> {{ card.description }}</li>
                 <li><b>Дата дедлайна:</b> {{ card.dateD }}</li>
                 <li><b>Дата создания:</b> {{ card.dateC }}</li>
@@ -146,7 +145,7 @@ Vue.component('column1', {  //создание, удаление, редакти
                             <input type="date" v-model="card.dateD">
                         </p>
                         <p>
-                            <input type="submit" value="Изменить карточку">
+                            <input class="button" type="submit" value="Изменить карточку">
                         </p>
                     </form>
                 </div>
@@ -196,7 +195,7 @@ Vue.component('column2', {  //редактирование, время посл�
         <h3>Задачи в работе</h3>
         <div class="card" v-for="card in column2">
             <ul>
-                <li><b>Заголовок:</b> {{ card.title }}</li>
+                <li class="title"><b>Заголовок:</b> {{ card.title }}</li>
                 <li><b>Описание задачи:</b> {{ card.description }}</li>
                 <li><b>Дата дедлайна:</b> {{ card.dateD }}</li>
                 <li><b>Дата создания:</b> {{ card.dateC }}</li>
@@ -215,7 +214,7 @@ Vue.component('column2', {  //редактирование, время посл�
                             <input type="date" v-model="card.dateD">
                         </p>
                         <p>
-                            <input type="submit" value="Изменить карточку">
+                            <input class="button" type="submit" value="Изменить карточку">
                         </p>
                     </form>
                 </div>
@@ -261,7 +260,7 @@ Vue.component('column3', {  //редактирование, время посл�
         <h3>Тестирование</h3>
         <div class="card" v-for="card in column3">
             <ul>
-                <li><b>Заголовок:</b> {{ card.title }}</li>
+                <li class="title"><b>Заголовок:</b> {{ card.title }}</li>
                 <li><b>Описание задачи:</b> {{ card.description }}</li>
                 <li><b>Дата дедлайна:</b> {{ card.dateD }}</li>
                 <li><b>Дата создания:</b> {{ card.dateC }}</li>
@@ -270,7 +269,7 @@ Vue.component('column3', {  //редактирование, время посл�
                 <li v-if="moveBack">
                     <form @submit.prevent="onSubmit(card)">
                         <textarea v-model="reason2" cols="20" rows="4"></textarea>
-                        <input type="submit" value="Сохранить">
+                        <input class="button" type="submit" value="Сохранить">
                     </form>
                 </li>
                 <button @click="updateC(card)">Изменить</button>
@@ -286,7 +285,7 @@ Vue.component('column3', {  //редактирование, время посл�
                             <input type="date" v-model="card.dateD">
                         </p>
                         <p>
-                            <input type="submit" value="Изменить карточку">
+                            <input class="button" type="submit" value="Изменить карточку">
                         </p>
                     </form>
                 </div>
@@ -346,14 +345,13 @@ Vue.component('column4', {  //проверка срока дедлайна: ср
         <h3>Выполненные задачи</h3>
         <div class="card" v-for="card in column4">
             <ul>
-                <li><b>Заголовок:</b> {{ card.title }}</li>
+                <li class="title"><b>Заголовок:</b> {{ card.title }}</li>
                 <li><b>Описание задачи:</b> {{ card.description }}</li>
-                <li><b>Дата дедлайна:</b> {{ card.dateD }}</li>
                 <li><b>Дата создания:</b> {{ card.dateC }}</li>
-                <li v-if="card.dateL"><b>Дата последних изменений: </b>{{ card.dateL }}</li>
-                <li v-if="card.inTime">Задача выполнена в срок!!!</li>
-                <li v-else>Задача выполнена не в срок :(</li>
-                <li>
+                <li><b>Дата выполнения:</b> {{ card.dateC }}</li>
+                <li><b>Дата дедлайна:</b> {{ card.dateD }}</li>
+                <li id="inTime" v-if="card.inTime">Задача выполнена в срок!!!</li>
+                <li id="notInTime" v-else>Задача выполнена не в срок :(</li>
             </ul>
         </div>
     </div>
